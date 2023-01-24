@@ -22,9 +22,8 @@ BuildRequires:	pkgconfig(fuse)
 BuildRequires:	pkgconfig(libarchive)
 BuildRequires:	pkgconfig(liblzma)
 BuildRequires:	pkgconfig(librsvg-2.0)
-# Not ready
-#BuildRequires:	pkgconfig(squashfuse)
-#BuildRequires:	xdg-utils-cxx
+BuildRequires:	pkgconfig(squashfuse)
+BuildRequires:	xdg-utils-cxx
 BuildRequires:	boost-devel
 
 %description
