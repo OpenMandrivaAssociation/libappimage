@@ -4,25 +4,27 @@
 # static lib used in cmake file, not delete!
 %define sdevname %mklibname appimage -d -s
 
+%define realversion 1.0.4-5
+
 Summary:	Implements functionality for dealing with AppImage files
 Name:		libappimage
-Version:	1.0.3
-Release:	4
+Version:	1.0.4.5
+Release:	1
 License:	GPLv2+
 Group:		Networking/File transfer
 Url:		https://github.com/AppImage/libappimage
-Source0:	https://github.com/AppImage/libappimage/archive/v%{version}.tar.gz?/%{name}-%{version}.tar.gz
-Patch0:		libappimage-linking.patch
+Source0:	https://github.com/AppImage/libappimage/archive/v%{version}/%{name}-%{realversion}.tar.gz
 BuildRequires:	cmake
-BuildRequires:	%{_bindir}/xxd
+BuildRequires:	vim
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(cairo)
 BuildRequires:	pkgconfig(fuse)
 BuildRequires:	pkgconfig(libarchive)
 BuildRequires:	pkgconfig(liblzma)
 BuildRequires:	pkgconfig(librsvg-2.0)
-BuildRequires:	pkgconfig(squashfuse)
-BuildRequires:	xdg-utils-cxx
+# Not ready
+#BuildRequires:	pkgconfig(squashfuse)
+#BuildRequires:	xdg-utils-cxx
 BuildRequires:	boost-devel
 
 %description
@@ -76,7 +78,7 @@ libappimage development files (static library).
 #----------------------------------------------------------------------------
 
 %prep
-%autosetup -p1
+%autosetup -n %{name}-%{realversion} -p1
 
 %build
 %cmake  -DBUILD_TESTING=OFF \
