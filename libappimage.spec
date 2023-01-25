@@ -23,6 +23,7 @@ BuildRequires:	pkgconfig(libarchive)
 BuildRequires:	pkgconfig(liblzma)
 BuildRequires:	pkgconfig(librsvg-2.0)
 BuildRequires:	pkgconfig(squashfuse)
+BuildRequires:	cmake(XdgUtils)
 BuildRequires:	xdg-utils-cxx
 BuildRequires:	boost-devel
 
