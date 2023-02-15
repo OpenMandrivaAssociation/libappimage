@@ -82,6 +82,8 @@ libappimage development files (static library).
 %autosetup -n %{name}-%{realversion} -p1
 
 %build
+%global ldflags %{ldflags} -Wl,-z,notext
+%global ldflags %{ldflags} -fuse-ld=gold
 %cmake  -DBUILD_TESTING=OFF \
 	-DUSE_SYSTEM_BOOST=ON \
 	-DUSE_SYSTEM_XZ=ON \
