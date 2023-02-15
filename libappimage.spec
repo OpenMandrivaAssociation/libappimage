@@ -5,6 +5,7 @@
 %define sdevname %mklibname appimage -d -s
 
 %define _disable_ld_no_undefined 1
+%define _disable_lto 1
 %define realversion 1.0.4-5
 
 Summary:	Implements functionality for dealing with AppImage files
