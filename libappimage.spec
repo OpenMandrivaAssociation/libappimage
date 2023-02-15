@@ -4,6 +4,7 @@
 # static lib used in cmake file, not delete!
 %define sdevname %mklibname appimage -d -s
 
+%define _disable_ld_no_undefined 1
 %define realversion 1.0.4-5
 
 Summary:	Implements functionality for dealing with AppImage files
@@ -85,7 +86,7 @@ libappimage development files (static library).
 	-DUSE_SYSTEM_BOOST=ON \
 	-DUSE_SYSTEM_XZ=ON \
 	-DUSE_SYSTEM_SQUASHFUSE=ON \
-	-DUSE_SYSTEM_XDGUTILS=OFF \
+	-DUSE_SYSTEM_XDGUTILS=ON \
 	-DUSE_SYSTEM_LIBARCHIVE=ON
 %make
 
