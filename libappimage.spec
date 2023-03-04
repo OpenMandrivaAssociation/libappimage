@@ -9,7 +9,7 @@
 Summary:	Implements functionality for dealing with AppImage files
 Name:		libappimage
 Version:	1.0.4.5
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Networking/File transfer
 Url:		https://github.com/AppImage/libappimage
@@ -24,7 +24,6 @@ BuildRequires:	pkgconfig(liblzma)
 BuildRequires:	pkgconfig(librsvg-2.0)
 BuildRequires:	pkgconfig(squashfuse)
 BuildRequires:	cmake(XdgUtils)
-BuildRequires:	xdg-utils-cxx
 BuildRequires:	boost-devel
 
 %description
@@ -37,6 +36,7 @@ dealing with AppImage files. It is written in C++ and is using Boost.
 Summary:	Implements functionality for dealing with AppImage files
 Group:		System/Libraries
 Provides:	%{name} = %{EVRD}
+Requires:	xdg-utils-cxx
 
 %description -n %{libname}
 This library is part of the AppImage project. It implements functionality for 
