@@ -14,7 +14,9 @@ License:	GPLv2+
 Group:		Networking/File transfer
 Url:		https://github.com/AppImage/libappimage
 Source0:	https://github.com/AppImage/libappimage/archive/v%{version}/%{name}-%{realversion}.tar.gz
+Patch0:		libappimage-1.0.4-5-clang16-gcc13.patch
 BuildRequires:	cmake
+BuildRequires:	ninja
 BuildRequires:	vim
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(cairo)
@@ -79,18 +81,19 @@ libappimage development files (static library).
 
 %prep
 %autosetup -n %{name}-%{realversion} -p1
-
-%build
 %cmake  -DBUILD_TESTING=OFF \
 	-DUSE_SYSTEM_BOOST=ON \
 	-DUSE_SYSTEM_XZ=ON \
 	-DUSE_SYSTEM_SQUASHFUSE=ON \
 	-DUSE_SYSTEM_XDGUTILS=ON \
-	-DUSE_SYSTEM_LIBARCHIVE=ON
-%make_build
+	-DUSE_SYSTEM_LIBARCHIVE=ON \
+	-G Ninja
+
+%build
+%ninja_build -C build
 
 %install
-%make_install -C build
+%ninja_install -C build
 
 # static lib used in cmake files, NOT delete!
 #rm %{buildroot}/%{_libdir}/*.a ||:
