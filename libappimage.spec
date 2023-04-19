@@ -9,7 +9,7 @@
 Summary:	Implements functionality for dealing with AppImage files
 Name:		libappimage
 Version:	1.0.4.5
-Release:	5
+Release:	6
 License:	GPLv2+
 Group:		Networking/File transfer
 Url:		https://github.com/AppImage/libappimage
@@ -54,6 +54,15 @@ Summary:	Implements functionality for dealing with AppImage files
 Group:		Development/C++
 Requires:	%{libname} = %{EVRD}
 Provides:	%{name}-devel = %{EVRD}
+Requires:	pkgconfig(glib-2.0)
+Requires:	pkgconfig(cairo)
+Requires:	pkgconfig(fuse)
+Requires:	pkgconfig(libarchive)
+Requires:	pkgconfig(liblzma)
+Requires:	pkgconfig(librsvg-2.0)
+Requires:	pkgconfig(squashfuse)
+Requires:	cmake(XdgUtils)
+Requires:	boost-devel
 
 %description -n %{devname}
 This library is part of the AppImage project. It implements functionality for 
