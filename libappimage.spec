@@ -9,7 +9,7 @@
 Summary:	Implements functionality for dealing with AppImage files
 Name:		libappimage
 Version:	1.0.4.5
-Release:	6
+Release:	7
 License:	GPLv2+
 Group:		Networking/File transfer
 Url:		https://github.com/AppImage/libappimage
@@ -63,6 +63,7 @@ Requires:	pkgconfig(librsvg-2.0)
 Requires:	pkgconfig(squashfuse)
 Requires:	cmake(XdgUtils)
 Requires:	boost-devel
+%rename %{sdevname}
 
 %description -n %{devname}
 This library is part of the AppImage project. It implements functionality for 
@@ -73,18 +74,8 @@ dealing with AppImage files. It is written in C++ and is using Boost.
 %{_includedir}/appimage
 %{_libdir}/pkgconfig/%{name}.pc
 %{_libdir}/cmake/
-#----------------------------------------------------------------------------
-
-%package -n %{sdevname}
-Summary:	Libappimage development files (static library)
-Group:		Development/Other
-Requires:	%{devname} = %{EVRD}
-Provides:	%{name}-static-devel = %{EVRD}
-
-%description -n %{sdevname}
-libappimage development files (static library).
-
-%files -n %{sdevname}
+# These aren't static library versions of the same thing,
+# but static helpers needed by libappimage users
 %{_libdir}/*.a
 #----------------------------------------------------------------------------
 
