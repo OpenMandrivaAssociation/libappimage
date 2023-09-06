@@ -4,7 +4,7 @@
 # static lib used in cmake file, not delete!
 %define sdevname %mklibname appimage -d -s
 
-%define realversion 1.0.4-5
+%define realversion %(echo -n $(echo %{version} |cut -d. -f1-3); [ -n "%(echo %{version} |cut -d. -f4-)" ] && echo -n "-%(echo %{version} |cut -d. -f4-)")
 
 Summary:	Implements functionality for dealing with AppImage files
 Name:		libappimage
