@@ -9,7 +9,7 @@
 Summary:	Implements functionality for dealing with AppImage files
 Name:		libappimage
 Version:	1.0.4.5
-Release:	14
+Release:	15
 License:	GPLv2+
 Group:		Networking/File transfer
 Url:		https://github.com/AppImage/libappimage
