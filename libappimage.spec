@@ -25,6 +25,7 @@ BuildOption:	-DUSE_SYSTEM_LIBARCHIVE=ON
 # Yes, really 2 build systems -- cmake/tools.cmake checks for it
 BuildRequires:	automake
 BuildRequires:	autoconf
+BuildRequires:	libtool-base
 BuildRequires:	vim
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(cairo)
