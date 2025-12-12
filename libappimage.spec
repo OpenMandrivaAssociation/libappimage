@@ -9,14 +9,19 @@
 Summary:	Implements functionality for dealing with AppImage files
 Name:		libappimage
 Version:	1.0.4.5
-Release:	16
+Release:	17
 License:	GPLv2+
 Group:		Networking/File transfer
 Url:		https://github.com/AppImage/libappimage
 Source0:	https://github.com/AppImage/libappimage/archive/v%{version}/%{name}-%{realversion}.tar.gz
 Patch0:		libappimage-1.0.4-5-clang16-gcc13.patch
-BuildRequires:	cmake
-BuildRequires:	ninja
+BuildSystem:	cmake
+BuildOption:	-DBUILD_TESTING=OFF
+BuildOption:	-DUSE_SYSTEM_BOOST=ON
+BuildOption:	-DUSE_SYSTEM_XZ=ON
+BuildOption:	-DUSE_SYSTEM_SQUASHFUSE=ON
+BuildOption:	-DUSE_SYSTEM_XDGUTILS=ON
+BuildOption:	-DUSE_SYSTEM_LIBARCHIVE=ON
 BuildRequires:	vim
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(cairo)
@@ -77,24 +82,3 @@ dealing with AppImage files. It is written in C++ and is using Boost.
 # These aren't static library versions of the same thing,
 # but static helpers needed by libappimage users
 %{_libdir}/*.a
-#----------------------------------------------------------------------------
-
-%prep
-%autosetup -n %{name}-%{realversion} -p1
-%cmake  -DBUILD_TESTING=OFF \
-	-DUSE_SYSTEM_BOOST=ON \
-	-DUSE_SYSTEM_XZ=ON \
-	-DUSE_SYSTEM_SQUASHFUSE=ON \
-	-DUSE_SYSTEM_XDGUTILS=ON \
-	-DUSE_SYSTEM_LIBARCHIVE=ON \
-	-G Ninja
-
-%build
-%ninja_build -C build
-
-%install
-%ninja_install -C build
-
-# static lib used in cmake files, NOT delete!
-#rm %{buildroot}/%{_libdir}/*.a ||:
-sed -i 's,\/\/usr,\/,' %{buildroot}/%{_libdir}/pkgconfig/%{name}.pc
