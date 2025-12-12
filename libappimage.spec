@@ -26,6 +26,7 @@ BuildOption:	-DUSE_SYSTEM_LIBARCHIVE=ON
 BuildRequires:	automake
 BuildRequires:	autoconf
 BuildRequires:	libtool-base
+BuildRequires:	make
 BuildRequires:	vim
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(cairo)
