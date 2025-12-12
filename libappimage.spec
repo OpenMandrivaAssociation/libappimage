@@ -22,6 +22,9 @@ BuildOption:	-DUSE_SYSTEM_XZ=ON
 BuildOption:	-DUSE_SYSTEM_SQUASHFUSE=ON
 BuildOption:	-DUSE_SYSTEM_XDGUTILS=ON
 BuildOption:	-DUSE_SYSTEM_LIBARCHIVE=ON
+# Yes, really 2 build systems -- cmake/tools.cmake checks for it
+BuildRequires:	automake
+BuildRequires:	autoconf
 BuildRequires:	vim
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(cairo)
